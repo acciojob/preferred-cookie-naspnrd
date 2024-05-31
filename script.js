@@ -12,7 +12,7 @@ form.addEventListener("submit", function(event){
 	document.cookie = `fontsize=${fontSize};max-age=${60*60*24*30}`;
 	document.cookie = `fontcolor=${fontColor};max-age=${60*60*24*30}`;
 	document.documentElement.style.setProperty("--fontsize", `${fontSize}px`);
-	document.documentElement.style.setProperty("--fontColor", fontColor);
+	document.documentElement.style.setProperty("--fontcolor", `${fontColor}`);
 })
 
 const cookieString = document.cookie;
