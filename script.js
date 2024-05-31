@@ -9,8 +9,10 @@ form.addEventListener("submit", function(event){
 	const fontSize = document.getElementById("fontsize").value;
 	const fontColor = document.getElementById("fontcolor").value;
 	console.log({fontSize, fontColor})
-	document.cookie = `fontSize=${fontSize};max-age=${60*60*24*30}`;
-	document.cookie = `fontColor=${fontColor};max-age=${60*60*24*30}`;
+	document.cookie = `fontsize=${fontSize};max-age=${60*60*24*30}`;
+	document.cookie = `fontcolor=${fontColor};max-age=${60*60*24*30}`;
+	document.documentElement.style.setProperty("--fontsize", `${fontSize}px`);
+	document.documentElement.style.setProperty("--fontColor", fontColor);
 })
 
 const cookieString = document.cookie;
@@ -19,9 +21,9 @@ console.log(cookieString, cookies);
 for(const cookie of cookies){
 	const[name, value] = cookie.split('=');
 	console.log({name, value});
-	if(name.trim() === "fontSize"){
+	if(name.trim() === "fontzize"){
 		document.documentElement.style.setProperty("--fontsize", `${value}px`);
-	} else if(name.trim() === "fontColor"){
+	} else if(name.trim() === "fontcolor"){
 		document.documentElement.style.setProperty("--fontcolor", `${value}`);
 	}
 }
