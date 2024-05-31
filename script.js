@@ -21,7 +21,7 @@ console.log(cookieString, cookies);
 for(const cookie of cookies){
 	const[name, value] = cookie.split('=');
 	console.log({name, value});
-	if(name.trim() === "fontzize"){
+	if(name.trim() === "fontsize"){
 		document.documentElement.style.setProperty("--fontsize", `${value}px`);
 	} else if(name.trim() === "fontcolor"){
 		document.documentElement.style.setProperty("--fontcolor", `${value}`);
