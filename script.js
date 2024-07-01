@@ -8,17 +8,17 @@ form.addEventListener("submit", (event) => {
 	document.cookie = `fontsize=${fontSize};max-age=${60 * 60 * 24 * 30}`;
 	document.cookie = `fontcolor=${fontColor};max-age=${60 * 60 * 24 * 30}`;
 	document.documentElement.style.setProperty("--fontsize", `${fontSize}px`);
-	document.documentElement.style.setProperty("--fontcolor", fontColor);
+	document.documentElement.style.setProperty("--fontcolor", `${fontColor}`);
 })
 
-const cookieString = document.cookie; 
+const cookieString = document.cookie;
 const cookies = cookieString.split(";");
 for(const cookie of cookies){
-	const [name, value] = cookie;
+	const [name, value] = cookie.split("=");
 	if(name.trim() === "fontsize"){
 	document.documentElement.style.setProperty("--fontsize", `${value}px`);
 	} else if(name.trim() === "fontcolor"){
-	document.documentElement.style.setProperty("--fontcolor", value);
+	document.documentElement.style.setProperty("--fontcolor", `${value}`);
 	}
 
 }
